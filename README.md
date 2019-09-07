@@ -1,2 +1,0 @@
-# pythecamp
-TheCamp Python Client
