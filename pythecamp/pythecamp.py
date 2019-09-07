@@ -3,7 +3,7 @@ import logging
 
 import requests
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('pythecamp')
 
 
 def build_session() -> requests.Session:
