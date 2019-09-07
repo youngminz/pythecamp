@@ -9,29 +9,22 @@ pythecamp
 .. image:: https://img.shields.io/travis/youngminz/pythecamp.svg
         :target: https://travis-ci.org/youngminz/pythecamp
 
-.. image:: https://readthedocs.org/projects/pythecamp/badge/?version=latest
-        :target: https://pythecamp.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+인터넷 편지를 보낼 수 있게 해 주는 파이썬 라이브러리입니다.
 
+.. code:: python
 
+    import pythecamp
 
-
-TheCamp Python Client
-
-
-* Free software: MIT license
-* Documentation: https://pythecamp.readthedocs.io.
-
-
-Features
---------
-
-* TODO
-
-Credits
--------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+    client = pythecamp.TheCampClient()
+    client.login('<TheCamp Login ID>', '<TheCamp Login Password>')
+    groups = client.get_group_list()
+    trainees = client.get_trainee(groups[0]['group_id'])
+    client.write_letter(
+        '제목',
+        '편지 내용',
+        groups[0]['unit_code'],
+        groups[0]['group_id'],
+        trainees['trainee_name'],
+        trainees['birth'],
+        trainees['relationship'])
+    client.logout()
